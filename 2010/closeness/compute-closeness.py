@@ -44,6 +44,16 @@ def main() :
     ndates = len(all_dates)
 
     print("Number of time steps: ", ndates)
+    
+
+    # before creating the plots, check the existence of the directory to store files
+    if not(os.path.exists('/data/closeness-fields')):
+        try:
+            os.makedirs('./data/closeness-fields')
+        except OSError:
+            print ("Creation of the directory failed.")
+        else:
+            print ("Creation of the directory successfull.")
 
     # loop over time steps
     idx = -1

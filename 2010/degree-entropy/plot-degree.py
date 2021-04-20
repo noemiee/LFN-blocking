@@ -95,6 +95,14 @@ def main() :
 
     time = num2date(time[:],time.units)
 
+    # before creating the plots, check the existence of the figure directory 
+    if not(os.path.exists('/figures/degree')):
+        try:
+            os.makedirs('./figures/degree')
+        except OSError:
+            print ("Creation of the figures/degree directory failed.")
+        else:
+            print ("Creation of the figures/degree directory successfull.")
 
     # loop over time steps
     idx = -1

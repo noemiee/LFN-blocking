@@ -31,7 +31,7 @@ def viz(lon0, lon1, lat0, lat1, Xi, Yi, hcl_interp, minimum, maximum, lon_r, lat
     # filled contour plot of the interpolated closeness
     xxi, yyi = m(Xi, Yi)
     levels = np.linspace(minimum, maximum, 80)
-    cnt = m.contourf(xxi, yyi, hcl_interp, levels = levels, cmap="viridis", extend = 'both'
+    cnt = m.contourf(xxi, yyi, hcl_interp, levels = levels, cmap="viridis", extend = 'both')
     
     # set edges of contours the same color as faces
     for c in cnt.collections:
@@ -47,7 +47,7 @@ def viz(lon0, lon1, lat0, lat1, Xi, Yi, hcl_interp, minimum, maximum, lon_r, lat
     plt.clabel(cs, inline=1, fontsize=8, fmt='%.0f')
     
     # save figure
-    plt.savefig(file_name, format='png', dpi=300,  bbox_inches="tight")
+    plt.savefig(file_name, format='pdf', dpi=300,  bbox_inches="tight")
     plt.close()
 
 
@@ -98,6 +98,15 @@ def main() :
 
     time = num2date(time[:],time.units)
 
+    # before creating the plots, check the existence of the figure directory 
+    if not(os.path.exists('/figures')):
+        try:
+            os.mkdir('./figures')
+        except OSError:
+            print ("Creation of the figures directory failed.")
+        else:
+            print ("Creation of the figures directory successfull.")
+        
 
     # loop over time steps
     idx = -1
@@ -145,7 +154,7 @@ def main() :
 
         #############################################################
         # plot closeness
-        viz(-175., 175., 15, 75, Xi, Yi, hcl_interp, minimum, maximum, lon_r, lat_r, z_data, str(all_dates[idx]), './figures/hcl_out'+image_number+'.png')
+        viz(-175., 175., 15, 75, Xi, Yi, hcl_interp, minimum, maximum, lon_r, lat_r, z_data, str(all_dates[idx]), './figures/hcl_out'+image_number+'.pdf')
         
 
 

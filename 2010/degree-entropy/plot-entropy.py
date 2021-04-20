@@ -44,7 +44,7 @@ def viz(lon0, lon1, lat0, lat1, Xi, Yi, e_interp, minimum, maximum, lon_r, lat_r
     cs = m.contour(x, y, z_data/10., linewidths=1.5, colors = 'w') #:1333
     plt.clabel(cs, inline=1, fontsize=8, fmt='%.0f')
 
-    plt.savefig(file_name, format='png', dpi=300,  bbox_inches="tight")
+    plt.savefig(file_name, format='pdf', dpi=300,  bbox_inches="tight")
     plt.close()
 
 
@@ -94,6 +94,15 @@ def main() :
     z = np.concatenate((z[:,:,int(len(lon_r)/2.):],z[:,:,:int(len(lon_r)/2.)]), axis = 2)
 
     time = num2date(time[:],time.units)
+    
+    # before creating the plots, check the existence of the figure directory
+    if not(os.path.exists('/figures/entropy')):
+        try:
+            os.makedirs('./figures/entropy')
+        except OSError:
+            print ("Creation of the figures/entropy directory failed.")
+        else:
+            print ("Creation of the figures/entropy directory successfull.")
 
 
     # loop over time steps
@@ -143,7 +152,7 @@ def main() :
 
         #############################################################
         # plot entropy
-        viz(-175., 175., 15, 75, Xi, Yi, e_interp, minimum, maximum, lon_r, lat_r, z_data, str(all_dates[idx]), './figures/entropy/H1out'+image_number+'.png')
+        viz(-175., 175., 15, 75, Xi, Yi, e_interp, minimum, maximum, lon_r, lat_r, z_data, str(all_dates[idx]), './figures/entropy/H1out'+image_number+'.pdf')
         
 
 
