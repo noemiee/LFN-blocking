@@ -9,7 +9,7 @@ The workflow used to produce the figures is illustrated below. The ERA-Interim [
 
 The Flexpart code, tutorials as well as information on the ERA-Interim data retrieval and pre-processing is available [here](https://www.flexpart.eu/). 
 
-In this folder we provide the *network.py* file used to read and compute the Lagrangian Flow Networks. Then, the folder *2010* contains all the code and data necessary to reproduce the plots presented in the paper. The sub-folder structure is illustrated below (for the closeness computations). The color of the data folder indicates that it stores the input of the file of the same color. The 'dashed' contour for a folder indicated that the folder does not exist yet but will be created when running the code. 
+In this folder we provide the *network.py* file used to read and compute the Lagrangian Flow Networks. The weighted adjacency matrices obatained for Mai-June-July-August 2010 as well as June-July-August 2003 and 2018 are available in the respective folders. In particular, the folder *2010* contains all the code and data necessary to reproduce the plots presented in the paper. The sub-folder structure is illustrated below (for the closeness computations). The color of the data folder indicates input for the file of the same color. The 'dashed' contour indicates that the folder does not exist yet but will be created when running the code. 
 
 In order to reproduce the results, the user must have installed python3 and simply follow the folowing steps:
 1. uncompress the data present in the *gph* folder
@@ -18,9 +18,6 @@ In order to reproduce the results, the user must have installed python3 and simp
 
 ![Figure2](https://github.com/noemiee/LFN-blocking/blob/main/closeness.png)
 
-
-
-In addition, we also provide the networks adjacency matrices for June-July-August 2003 and 2018 (in the respective folders).
 
 [1] Dee et al., “The ERA-interim reanalysis: configuration and performance of the data assimilation system” QuarterlyJournal of the Royal Meteorological Society 137, 553–597 (2011).
 
