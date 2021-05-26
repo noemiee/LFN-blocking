@@ -1,7 +1,7 @@
 # LFN-blocking
 
 Code and data for the results presented in:
-Characteristic signatures of Northern Hemisphere blocking situations in Lagrangian network representations of atmospheric flow, N. Ehstand et al.
+Characteristic signatures of Northern Hemisphere blocking events in a Lagrangian flow network representation of the atmospheric circulation, N. Ehstand et al.
 
 The workflow used to produce the figures is illustrated below. The ERA-Interim [1] data is fed into the model Flexpart [2] which outputs the particles' trajectories required to compute the Lagrangian Flow networks via the file "network.py" (see the methodology section of our paper for complementary information). Once the adjacency matrices of each of the networks are obtained, the measures (degree, entropy and harmonic closeness centrality) are computed and plotted using the "compute-\*.py" and "plot-\*.py" functions. 
 
